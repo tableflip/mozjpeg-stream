@@ -17,7 +17,16 @@ http.get('http://aboutpug.com/wp-content/uploads/2015/01/flying-monkey-cute-pug.
   })
 ```
 
-Wraps the excellent: https://www.npmjs.com/package/mozjpeg by the [imagemin crew](https://github.com/imagemin)
+And so this chunky `2.1M` of [raw pug](https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.jpg)
+
+...becomes `200K` of streamed, mozjpeg'd, [flying pug](https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.min.jpg):
+
+![a svelte, 200K, mozjpeg pug](https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.min.jpg)
+
+mozjpeg-stream wraps the most excellent: https://www.npmjs.com/package/mozjpeg by the [imagemin crew](https://github.com/imagemin)
+
+
+which in turn wraps mozjpeg...
 
 # More info on mozjpeg:
 - https://blog.mozilla.org/research/2014/07/15/mozilla-advances-jpeg-encoding-with-mozjpeg-2-0/
