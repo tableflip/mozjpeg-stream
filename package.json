@@ -1,0 +1,40 @@
+{
+  "name": "mozjpeg-stream",
+  "version": "0.1.0",
+  "description": "The awesome JPEG minifying power of mozjpeg wrapped up as a `.pipe` friendly stream",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && node test/test.js"
+  },
+  "author": "olizilla",
+  "license": "ISC",
+  "dependencies": {
+    "duplex-child-process": "0.0.5",
+    "mozjpeg": "^4.0.1",
+    "tape": "^4.0.0"
+  },
+  "devDependencies": {
+    "buffer-equal": "0.0.1",
+    "concat-stream": "^1.5.0",
+    "standard": "^4.5.2",
+    "stream-to-buffer": "^0.1.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tableflip/mozjpeg-stream.git"
+  },
+  "keywords": [
+    "minify",
+    "compress",
+    "jpeg",
+    "mozjpeg",
+    "jpg"
+  ],
+  "bugs": {
+    "url": "https://github.com/tableflip/mozjpeg-stream/issues"
+  },
+  "homepage": "https://github.com/tableflip/mozjpeg-stream"
+}
