@@ -7,7 +7,7 @@ Grab flying pugs over http and automagically minify them with mozjpeg before let
 ```js
 var fs require('fs')
 var http require('http')
-var mozjpeg = require('mozjpegStream')
+var mozjpeg = require('mozjpeg-stream')
 
 http.get('http://aboutpug.com/wp-content/uploads/2015/01/flying-monkey-cute-pug.jpg')
   .on('response', function (resp) {
