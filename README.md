@@ -17,18 +17,32 @@ http.get('http://aboutpug.com/wp-content/uploads/2015/01/flying-monkey-cute-pug.
   })
 ```
 
-And so this chunky `2.1M` of [raw pug](https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.jpg)
+And so this chunky `1.5M` of [raw pug](https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.jpg)
 
-...becomes `200K` of streamed, mozjpeg'd, [flying pug](https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.min.jpg):
+![A heavy, 1.5M pug](https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.jpg)
 
-![a svelte, 200K, mozjpeg pug](https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.min.jpg)
+...becomes `132K` of optimal, progressive, mozjpeg'd, [flying pug](https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.q75.jpg):
 
-mozjpeg-stream wraps the most excellent: https://www.npmjs.com/package/mozjpeg by the [imagemin crew](https://github.com/imagemin)
+![a svelte, 132K, progressive, mozjpeg pug](https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.q75.jpg)
 
+`mozjpeg` sets the compression quality to 75 by default, but you can adjust it:
 
-which in turn wraps mozjpeg...
+```js
+fs.createReadStream('flying-pug.jpg')
+  .pipe(mozjpeg({quality: 50}))
+  .pipe(fs.createWriteStream('flying-pug.q50.jpg'))
+```
 
-# More info on mozjpeg:
+So you can wring out further byte savings, and for many pictures, nothing of importance is lost...
+
+`84K` of `-quality 50`, piped, progressive, mozjpeg'd, [flying pug](https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.q75.jpg)
+
+![a still fly 84K of -qualtiy 50, progressive, mozjpeg pug](https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.q50.jpg)
+
+## More info
+
+[mozjpeg-stream](https://www.npmjs.com/package/mozjpeg-stream) wraps the most excellent [mozjpeg module](https://www.npmjs.com/package/mozjpeg) by the [imagemin crew](https://github.com/imagemin), which in turn wraps [mozjpeg](https://github.com/mozilla/mozjpeg) from the most excellent [Mozilla](https://www.mozilla.org/en-US/mission/). So it's good stuff all the way down.
+
 - https://blog.mozilla.org/research/2014/07/15/mozilla-advances-jpeg-encoding-with-mozjpeg-2-0/
 - https://hacks.mozilla.org/2014/08/using-mozjpeg-to-create-efficient-jpegs/
 - https://github.com/mozilla/mozjpeg/blob/7faa703ebf7360e5c0a37d71a74c293232998340/usage.txt#L68

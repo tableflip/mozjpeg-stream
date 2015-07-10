@@ -10,7 +10,7 @@ test('Does it blend?', function (t) {
   fs.createReadStream(path.join(__dirname, 'flying-pug.jpg'))
     .pipe(mozjpeg())
     .pipe(concat(function (actual) {
-      var expected = fs.readFileSync(path.join(__dirname, 'flying-pug.min.jpg'))
+      var expected = fs.readFileSync(path.join(__dirname, 'flying-pug.q75.jpg'))
       t.ok(bufferEqual(actual, expected), 'The Buffers! Do they match?')
     }))
 })
