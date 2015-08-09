@@ -5,8 +5,8 @@ The awesome JPEG minifying power of [mozjpeg](https://www.npmjs.com/package/mozj
 Grab flying pugs over http and automagically minify them with mozjpeg before letting them near your hard drive.
 
 ```js
-var fs require('fs')
-var http require('http')
+var fs = require('fs')
+var http = require('http')
 var mozjpeg = require('mozjpeg-stream')
 
 http.get('http://aboutpug.com/wp-content/uploads/2015/01/flying-monkey-cute-pug.jpg')
