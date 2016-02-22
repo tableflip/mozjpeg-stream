@@ -12,8 +12,8 @@ module.exports = function (opts) {
   opts.quality = opts.quality || 75
   var args = []
   if (opts.quality) args.push('-quality', opts.quality)
-  if (opts.args) args.push(opts.args.split[' '])
-
-  var foo = dcp.spawn(mozjpeg, args)
-  return foo
+  if (opts.args) {
+    args = args.concat(opts.args.split(' '))
+  }
+  return dcp.spawn(mozjpeg, args)
 }
