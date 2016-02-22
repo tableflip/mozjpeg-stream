@@ -1,6 +1,6 @@
 {
   "name": "mozjpeg-stream",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The awesome JPEG minifying power of mozjpeg wrapped up as a `.pipe` friendly stream",
   "main": "index.js",
   "scripts": {
