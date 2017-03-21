@@ -1,0 +1,88 @@
+{
+  "name": "tableflip/mozjpeg-stream",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "",
+  "branch": "",
+  "style": {
+    "name": "Swiss",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/SwissHeader",
+      "article": "article/SwissArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+    "heading": {
+      "fontWeight": 700,
+      "letterSpacing": "-0.01em"
+    },
+    "layout": {
+      "fluid": true
+    },
+    "colors": {
+      "text": "#000",
+      "background": "#fff",
+      "primary": "#05a",
+      "secondary": "#444",
+      "highlight": "#f30",
+      "border": "#ccc",
+      "muted": "#eee"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/tableflip/mozjpeg-stream",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/mozjpeg-stream",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "mozjpeg-stream",
+      "subhead": ":shower: The awesome JPEG minifying power of mozjpeg wrapped up as a `.pipe` friendly stream.",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "mozjpeg-stream: :shower: The awesome JPEG minifying power of mozjpeg wrapped up as a `.pipe` friendly stream.",
+          "url": ""
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "tableflip",
+          "repo": "mozjpeg-stream"
+        }
+      ],
+      "text": "v1.0.3"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "\n<p>The awesome JPEG minifying power of <a href=\"https://www.npmjs.com/package/mozjpeg\">mozjpeg</a> wrapped up as a <code>.pipe</code> friendly node duplex stream.</p>\n<p>Grab flying pugs over http and automagically minify them with mozjpeg before letting them near your hard drive.</p>\n<pre><span class=\"hljs-keyword\">var</span> fs = <span class=\"hljs-built_in\">require</span>(<span class=\"hljs-string\">&apos;fs&apos;</span>)\n<span class=\"hljs-keyword\">var</span> http = <span class=\"hljs-built_in\">require</span>(<span class=\"hljs-string\">&apos;http&apos;</span>)\n<span class=\"hljs-keyword\">var</span> mozjpeg = <span class=\"hljs-built_in\">require</span>(<span class=\"hljs-string\">&apos;mozjpeg-stream&apos;</span>)\n\nhttp.get(<span class=\"hljs-string\">&apos;http://aboutpug.com/wp-content/uploads/2015/01/flying-monkey-cute-pug.jpg&apos;</span>)\n  .on(<span class=\"hljs-string\">&apos;response&apos;</span>, <span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> (<span class=\"hljs-params\">resp</span>) </span>{\n    resp\n      .pipe(mozjpeg())\n      .pipe(fs.createWriteStream(<span class=\"hljs-string\">&apos;flying-pug.min.jpg&apos;</span>))\n  })</pre><p>And so this chunky <code>1.5M</code> of <a href=\"https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.jpg\">raw pug</a></p>\n<p><img src=\"https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.jpg\"></p>\n<p>...becomes <code>132K</code> of optimal, progressive, mozjpeg&apos;d, <a href=\"https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.q75.jpg\">flying pug</a>:</p>\n<p><img src=\"https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.q75.jpg\"></p>\n<p><code>mozjpeg</code> sets the compression quality to 75 by default, but you can adjust it:</p>\n<pre>fs.createReadStream(<span class=\"hljs-string\">&apos;flying-pug.jpg&apos;</span>)\n  .pipe(mozjpeg({<span class=\"hljs-attr\">quality</span>: <span class=\"hljs-number\">50</span>}))\n  .pipe(fs.createWriteStream(<span class=\"hljs-string\">&apos;flying-pug.q50.jpg&apos;</span>))</pre><p>So you can wring out further byte savings, and for many pictures, nothing of importance is lost...</p>\n<p><code>84K</code> of <code>-quality 50</code>, piped, progressive, mozjpeg&apos;d, <a href=\"https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.q75.jpg\">flying pug</a></p>\n<p><img src=\"https://raw.githubusercontent.com/tableflip/mozjpeg-stream/master/test/flying-pug.q50.jpg\"></p>\n<h2>More info</h2>\n<p><a href=\"https://www.npmjs.com/package/mozjpeg-stream\">mozjpeg-stream</a> wraps the most excellent <a href=\"https://www.npmjs.com/package/mozjpeg\">mozjpeg module</a> by the <a href=\"https://github.com/imagemin\">imagemin crew</a>, which in turn wraps <a href=\"https://github.com/mozilla/mozjpeg\">mozjpeg</a> from the most excellent <a href=\"https://www.mozilla.org/en-US/mission/\">Mozilla</a>. So it&apos;s good stuff all the way down.</p>\n<ul>\n<li><a href=\"https://blog.mozilla.org/research/2014/07/15/mozilla-advances-jpeg-encoding-with-mozjpeg-2-0/\">https://blog.mozilla.org/research/2014/07/15/mozilla-advances-jpeg-encoding-with-mozjpeg-2-0/</a></li>\n<li><a href=\"https://hacks.mozilla.org/2014/08/using-mozjpeg-to-create-efficient-jpegs/\">https://hacks.mozilla.org/2014/08/using-mozjpeg-to-create-efficient-jpegs/</a></li>\n<li><a href=\"https://github.com/mozilla/mozjpeg/blob/7faa703ebf7360e5c0a37d71a74c293232998340/usage.txt#L68\">https://github.com/mozilla/mozjpeg/blob/7faa703ebf7360e5c0a37d71a74c293232998340/usage.txt#L68</a></li>\n</ul>\n<hr>\n<p>A <a href=\"https://tableflip.io\">(&#x256F;&#xB0;&#x25A1;&#xB0;&#xFF09;&#x256F;&#xFE35;TABLEFLIP</a> side project.</p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/tableflip/mozjpeg-stream",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/tableflip",
+          "text": "tableflip"
+        }
+      ]
+    }
+  ]
+}
