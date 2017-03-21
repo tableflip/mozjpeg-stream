@@ -34,19 +34,6 @@
   },
   "content": [
     {
-      "component": "nav",
-      "links": [
-        {
-          "href": "https://github.com/tableflip/mozjpeg-stream",
-          "text": "GitHub"
-        },
-        {
-          "href": "https://npmjs.com/package/mozjpeg-stream",
-          "text": "npm"
-        }
-      ]
-    },
-    {
       "component": "header",
       "heading": "mozjpeg-stream",
       "subhead": ":shower: The awesome JPEG minifying power of mozjpeg wrapped up as a `.pipe` friendly stream.",
